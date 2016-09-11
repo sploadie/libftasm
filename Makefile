@@ -6,12 +6,12 @@
 #    By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/20 16:35:37 by tgauvrit          #+#    #+#              #
-#    Updated: 2016/09/10 15:53:05 by tgauvrit         ###   ########.fr        #
+#    Updated: 2016/09/11 13:40:38 by tgauvrit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =				libfts.a
-ASM_FILES =			ft_bzero ft_isdigit ft_isprint ft_strcat
+ASM_FILES =			ft_bzero ft_isdigit ft_isprint ft_strcat ft_isalpha ft_isalnum ft_isascii ft_toupper ft_tolower ft_puts
 
 ASM_COMPILER =		~/.brew/bin/nasm -f macho64
 ASM_SRC_DIR =		./src/
