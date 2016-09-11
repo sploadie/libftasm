@@ -6,7 +6,7 @@
 ;    By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2016/09/10 13:34:21 by tgauvrit          #+#    #+#              ;
-;    Updated: 2016/09/10 16:04:18 by tgauvrit         ###   ########.fr        ;
+;    Updated: 2016/09/11 15:57:56 by tgauvrit         ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -16,9 +16,9 @@ section	.text
 
 _ft_strcat:
 	cmp rdi, 0			; s1 not NULL
-	je end
+	je error
 	cmp rsi, 0			; s2 not NULL
-	je end
+	je error
 	mov r11, rdi		; save s1
 	cld					; direction flag -> inc
 	xor al, al			; scan value = '\0'
@@ -45,4 +45,7 @@ _ft_strcat:
 	rep movsb
 	mov rax, r11
 end:
+	ret
+error:
+	mov rax, rdi
 	ret

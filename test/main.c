@@ -6,43 +6,50 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/08 10:48:28 by tgauvrit          #+#    #+#             */
-/*   Updated: 2016/09/11 14:04:44 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2016/09/11 18:04:29 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "libfts.h"
 
 int main(void)
 {
+	char *tmp;
 	char buf[256];
 	// ft_puts
+	dprintf(1, "\x1b[32mft_puts:\x1b[0m\n");
+	dprintf(1, "\t''   -> %2d\n", ft_puts(""));
+	dprintf(1, "\tNULL -> %2d\n", ft_puts(NULL));
+	dprintf(1, "\tlol  -> %2d\n", ft_puts("lol"));
+	dprintf(1, "\tcats -> %2d\n", ft_puts("cats"));
 	// ft_bzero
-	*buf = 0;
-	strcat(buf, "lol");
-	dprintf(1, "ft_bzero:\n\t%s\n", buf);
-	dprintf(1, "\t%03d %03d %03d %03d (constant)\n", buf[0], buf[1], buf[2], buf[3]);
+	strcpy(buf, "lol");
+	dprintf(1, "\x1b[32mft_bzero:\x1b[0m\n\t%s [original]\n", buf);
+	dprintf(1, "\t%03d %03d %03d %03d [original]\n", buf[0], buf[1], buf[2], buf[3]);
 	ft_bzero(NULL, 42);
 	dprintf(1, "\t%03d %03d %03d %03d (null)\n", buf[0], buf[1], buf[2], buf[3]);
 	ft_bzero(buf, 0);
 	dprintf(1, "\t%03d %03d %03d %03d (zero)\n", buf[0], buf[1], buf[2], buf[3]);
 	ft_bzero(buf, 1);
 	dprintf(1, "\t%03d %03d %03d %03d (one)\n", buf[0], buf[1], buf[2], buf[3]);
+	ft_bzero(buf, 2);
+	dprintf(1, "\t%03d %03d %03d %03d (two)\n", buf[0], buf[1], buf[2], buf[3]);
 	ft_bzero(buf, 4);
 	dprintf(1, "\t%03d %03d %03d %03d (four)\n", buf[0], buf[1], buf[2], buf[3]);
 	// ft_strcat
-	*buf = 0;
-	strcat(buf, "lol");
-	dprintf(1, "ft_strcat:\n\t%s\n", buf);
-	ft_strcat(buf, "cats");
-	dprintf(1, "\t%s\n", buf);
-	ft_strcat(buf, "!");
-	dprintf(1, "\t%s\n", buf);
-	ft_strcat(buf, "");
-	dprintf(1, "\t%s\n", buf);
+	strcpy(buf, "lol");
+	dprintf(1, "\x1b[32mft_strcat:\x1b[0m\n");
+	dprintf(1, "\t%s (buf)\n", buf);
+	dprintf(1, "\t%s (buf, 'cats')\n", ft_strcat(buf, "cats"));
+	dprintf(1, "\t%s (buf, '!')\n", ft_strcat(buf, "!"));
+	dprintf(1, "\t%s (buf, '')\n", ft_strcat(buf, ""));
+	dprintf(1, "\t%s (buf, NULL)\n", ft_strcat(buf, NULL));
+	dprintf(1, "\t%s (NULL, 'hm...')\n", ft_strcat(NULL, "hm..."));
 	// ft_isalpha
-	dprintf(1, "ft_isalpha:\n");
+	dprintf(1, "\x1b[32mft_isalpha:\x1b[0m\n");
 	dprintf(1, "\t%c -> %d\n", '!', ft_isalpha('!'));
 	dprintf(1, "\t%c -> %d\n", '@', ft_isalpha('@'));
 	dprintf(1, "\t%c -> %d\n", 'A', ft_isalpha('A'));
@@ -60,7 +67,7 @@ int main(void)
 	dprintf(1, "\t%c -> %d\n", '{', ft_isalpha('{'));
 	dprintf(1, "\t%c -> %d\n", '~', ft_isalpha('~'));
 	// ft_isdigit
-	dprintf(1, "ft_isdigit:\n");
+	dprintf(1, "\x1b[32mft_isdigit:\x1b[0m\n");
 	dprintf(1, "\t%c -> %d\n", '+', ft_isdigit('+'));
 	dprintf(1, "\t%c -> %d\n", '/', ft_isdigit('/'));
 	dprintf(1, "\t%c -> %d\n", '0', ft_isdigit('0'));
@@ -70,7 +77,7 @@ int main(void)
 	dprintf(1, "\t%c -> %d\n", ':', ft_isdigit(':'));
 	dprintf(1, "\t%c -> %d\n", 'z', ft_isdigit('z'));
 	// ft_isalnum
-	dprintf(1, "ft_isalnum:\n");
+	dprintf(1, "\x1b[32mft_isalnum:\x1b[0m\n");
 	dprintf(1, "\t%c -> %d\n", '!', ft_isalnum('!'));
 	dprintf(1, "\t%c -> %d\n", '/', ft_isalnum('/'));
 	dprintf(1, "\t%c -> %d\n", '0', ft_isalnum('0'));
@@ -94,7 +101,7 @@ int main(void)
 	dprintf(1, "\t%c -> %d\n", '{', ft_isalnum('{'));
 	dprintf(1, "\t%c -> %d\n", '~', ft_isalnum('~'));
 	// ft_isascii
-	dprintf(1, "ft_isascii:\n");
+	dprintf(1, "\x1b[32mft_isascii:\x1b[0m\n");
 	dprintf(1, "\t-1  -> %d\n", ft_isascii(-1));
 	dprintf(1, "\t0   -> %d\n", ft_isascii(0));
 	dprintf(1, "\t25  -> %d\n", ft_isascii(25));
@@ -105,7 +112,7 @@ int main(void)
 	dprintf(1, "\t127 -> %d\n", ft_isascii(127));
 	dprintf(1, "\t130 -> %d\n", ft_isascii(130));
 	// ft_isprint
-	dprintf(1, "ft_isprint:\n");
+	dprintf(1, "\x1b[32mft_isprint:\x1b[0m\n");
 	dprintf(1, "\t25  -> %d\n", ft_isprint(25));
 	dprintf(1, "\t31  -> %d\n", ft_isprint(31));
 	dprintf(1, "\t' ' -> %d\n", ft_isprint(' '));
@@ -114,7 +121,7 @@ int main(void)
 	dprintf(1, "\t127 -> %d\n", ft_isprint(127));
 	dprintf(1, "\t130 -> %d\n", ft_isprint(130));
 	// ft_toupper
-	dprintf(1, "ft_toupper:\n");
+	dprintf(1, "\x1b[32mft_toupper:\x1b[0m\n");
 	dprintf(1, "\t%c -> %c\n", '!', ft_toupper('!'));
 	dprintf(1, "\t%c -> %c\n", '@', ft_toupper('@'));
 	dprintf(1, "\t%c -> %c\n", 'A', ft_toupper('A'));
@@ -132,7 +139,7 @@ int main(void)
 	dprintf(1, "\t%c -> %c\n", '{', ft_toupper('{'));
 	dprintf(1, "\t%c -> %c\n", '~', ft_toupper('~'));
 	// ft_tolower
-	dprintf(1, "ft_tolower:\n");
+	dprintf(1, "\x1b[32mft_tolower:\x1b[0m\n");
 	dprintf(1, "\t%c -> %c\n", '!', ft_tolower('!'));
 	dprintf(1, "\t%c -> %c\n", '@', ft_tolower('@'));
 	dprintf(1, "\t%c -> %c\n", 'A', ft_tolower('A'));
@@ -149,8 +156,42 @@ int main(void)
 	dprintf(1, "\t%c -> %c\n", 'z', ft_tolower('z'));
 	dprintf(1, "\t%c -> %c\n", '{', ft_tolower('{'));
 	dprintf(1, "\t%c -> %c\n", '~', ft_tolower('~'));
-	// ft_puts
-	dprintf(1, "ft_puts:\n");
-	dprintf(1, "\tlol  -> %d\n", ft_puts("lol"));
-	dprintf(1, "\tcats -> %d\n", ft_puts("cats"));
+	// ft_strlen
+	dprintf(1, "\x1b[32mft_strlen:\x1b[0m\n");
+	dprintf(1, "\t%s -> %zu\n", NULL, ft_strlen(NULL));
+	dprintf(1, "\t'' -> %zu\n", ft_strlen(""));
+	dprintf(1, "\t%s -> %zu\n", "lol", ft_strlen("lol"));
+	dprintf(1, "\t%s -> %zu\n", "cats", ft_strlen("cats"));
+	dprintf(1, "\t%s -> %zu\n", "lolcats", ft_strlen("lolcats"));
+	dprintf(1, "\t%s -> %zu\n", "lolcats!", ft_strlen("lolcats!"));
+	// ft_memset
+	memset(buf, 0, 256);
+	dprintf(1, "\x1b[32mft_memset:\x1b[0m\n");
+	dprintf(1, "\t'%s' <- buf\n", buf);
+	dprintf(1, "\t'%s' <- ft_memset(NULL, 42, 42)\n", ft_memset(NULL, 42, 42));
+	dprintf(1, "\t'%s' <- ft_memset(buf, '$', 25)\n", ft_memset(buf, '$', 25));
+	dprintf(1, "\t'%s' <- ft_memset(buf, '-', 20)\n", ft_memset(buf, '-', 20));
+	dprintf(1, "\t'%s' <- ft_memset(buf, '=', 10)\n", ft_memset(buf, '=', 10));
+	dprintf(1, "\t'%s' <- ft_memset(buf, 'H', 5)\n",  ft_memset(buf, 'H', 5));
+	dprintf(1, "\t'%s' <- ft_memset(buf, 'B', 1)\n",  ft_memset(buf, 'B', 1));
+	dprintf(1, "\t'%s' <- ft_memset(buf, '~', 0)\n",  ft_memset(buf, '~', 0));
+	// ft_memcpy
+	memset(buf, 0, 256);
+	dprintf(1, "\x1b[32mft_memcpy:\x1b[0m\n");
+	dprintf(1, "\t'%s' <- buf\n", buf);
+	dprintf(1, "\t'%s' <- ft_memcpy(NULL, buf, 42)\n", ft_memcpy(NULL, buf, 42));
+	dprintf(1, "\t'%s' <- ft_memcpy(buf, NULL, 42)\n", ft_memcpy(buf, NULL, 42));
+	dprintf(1, "\t'%s' <- ft_memcpy(buf, 'YOLOSWAG!', 9)\n", ft_memcpy(buf, "YOLOSWAG!", 9));
+	dprintf(1, "\t'%s' <- ft_memcpy(buf, 'BLUE RACECAR', 6)\n", ft_memcpy(buf, "BLUE RACECAR", 6));
+	dprintf(1, "\t'%s' <- ft_memcpy(buf, 'TRUTH AND JUSTICE', 2)\n", ft_memcpy(buf, "TRUTH AND JUSTICE", 2));
+	dprintf(1, "\t'%s' <- ft_memcpy(buf, 'NOTHING', 0)\n", ft_memcpy(buf, "NOTHING", 0));
+	// ft_strdup
+	dprintf(1, "\x1b[32mft_strdup:\x1b[0m\n");
+	dprintf(1, "\t'%s' <- ft_strdup(NULL)\n", (tmp = ft_strdup(NULL)));
+	dprintf(1, "\t'%s' <- ft_strdup('')\n", (tmp = ft_strdup("")));
+	free(tmp);
+	dprintf(1, "\t'%s' <- ft_strdup('yolo')\n", (tmp = ft_strdup("yolo")));
+	free(tmp);
+	dprintf(1, "\t'%s' <- ft_strdup('My ft_strdup seems to work folks.')\n", (tmp = ft_strdup("My ft_strdup seems to work folks.")));
+	free(tmp);
 }

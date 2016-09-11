@@ -6,12 +6,14 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 13:23:59 by tgauvrit          #+#    #+#             */
-/*   Updated: 2016/09/10 13:34:14 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2016/09/11 17:35:39 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _LIBFTS
 # define _LIBFTS
+
+#include <stddef.h>
 
 void	ft_bzero(void *s, size_t n);
 char	*ft_strcat(char *restrict s1, const char *restrict s2);
@@ -23,5 +25,10 @@ int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_puts(const char *s);
+
+size_t	ft_strlen(const char *s);
+void	*ft_memset(void *b, int c, size_t len);
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
+char	*ft_strdup(const char *s1);
 
 #endif
