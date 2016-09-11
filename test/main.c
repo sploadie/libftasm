@@ -6,19 +6,22 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/08 10:48:28 by tgauvrit          #+#    #+#             */
-/*   Updated: 2016/09/11 18:04:29 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2016/09/11 18:57:30 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include "libfts.h"
 
 int main(void)
 {
-	char *tmp;
-	char buf[256];
+	char	*tmp;
+	char	buf[256];
+	int		fd;
 	// ft_puts
 	dprintf(1, "\x1b[32mft_puts:\x1b[0m\n");
 	dprintf(1, "\t''   -> %2d\n", ft_puts(""));
@@ -194,4 +197,11 @@ int main(void)
 	free(tmp);
 	dprintf(1, "\t'%s' <- ft_strdup('My ft_strdup seems to work folks.')\n", (tmp = ft_strdup("My ft_strdup seems to work folks.")));
 	free(tmp);
+	// ft_cat
+	dprintf(1, "\x1b[32mft_cat Makefile:\x1b[0m\n");
+	fd = open("./Makefile", O_RDONLY);
+	ft_cat(fd);
+	close(fd);
+	dprintf(1, "\x1b[32mft_cat stdin:\x1b[0m\n");
+	ft_cat(0);
 }
