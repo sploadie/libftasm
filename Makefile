@@ -6,7 +6,7 @@
 #    By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/20 16:35:37 by tgauvrit          #+#    #+#              #
-#    Updated: 2016/09/12 16:38:01 by tgauvrit         ###   ########.fr        #
+#    Updated: 2016/09/12 18:06:46 by tgauvrit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,10 @@ ASM_FILES =			ft_bzero	\
 					ft_strdup	\
 					ft_cat		\
 					ft_strcmp	\
-					ft_memdup
+					ft_memdup	\
+					ft_strchr	\
+					ft_strcspn	\
+					ft_pow
 
 ASM_COMPILER =		~/.brew/bin/nasm -f macho64
 ASM_SRC_DIR =		./src/

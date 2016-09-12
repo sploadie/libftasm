@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/08 10:48:28 by tgauvrit          #+#    #+#             */
-/*   Updated: 2016/09/12 16:55:01 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2016/09/12 18:59:07 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,4 +231,35 @@ int main(void)
 	tmp = ft_memdup("My ft_memdup seems to work folks.", 34);
 		dprintf(1, "\t'%s' <- ft_memdup('My ft_memdup seems to work folks.', 34)\n", tmp);
 		free(tmp);
+	// ft_strchr
+	dprintf(1, "\x1b[32mft_strchr:\x1b[0m\n");
+	dprintf(1, "\t'%s' <- ft_strchr(NULL, '?')\n", ft_strchr(NULL, '?'));
+	dprintf(1, "\t'%s' <- ft_strchr('', '?')\n", ft_strchr("", '?'));
+	dprintf(1, "\t'%s' <- ft_strchr('', '\\0')\n", ft_strchr("", '\0'));
+	dprintf(1, "\t'%s' <- ft_strchr('string', 'c')\n", ft_strchr("string", 'c'));
+	dprintf(1, "\t'%s' <- ft_strchr('string', 'r')\n", ft_strchr("string", 'r'));
+	dprintf(1, "\t'%s' <- ft_strchr('magic trick', '\\0')\n", ft_strchr("magic trick", '\0'));
+	dprintf(1, "\t'%s' <- ft_strchr('Does this work?', '?')\n", ft_strchr("Does this work?", '?'));
+	dprintf(1, "\t'%s' <- ft_strchr('Seems to work fine.', 'w')\n", ft_strchr("Seems to work fine.", 'w'));
+	// ft_strcspn
+	dprintf(1, "\x1b[32mft_strcspn:\x1b[0m\n");
+	dprintf(1, "\t%zu <- ft_strcspn(NULL, NULL)\n", ft_strcspn(NULL, NULL));
+	dprintf(1, "\t%zu <- ft_strcspn(NULL, '\?\?\?')\n", ft_strcspn(NULL, "???"));
+	dprintf(1, "\t%zu <- ft_strcspn('\?\?\?', NULL)\n", ft_strcspn("???", NULL));
+	dprintf(1, "\t%zu <- ft_strcspn('', 'void')\n", ft_strcspn("", "void"));
+	dprintf(1, "\t%zu <- ft_strcspn('string', 'clop')\n", ft_strcspn("string", "clop"));
+	dprintf(1, "\t%zu <- ft_strcspn('string', 'ringer')\n", ft_strcspn("string", "ringer"));
+	dprintf(1, "\t%zu <- ft_strcspn('magic trick', '')\n", ft_strcspn("magic trick", ""));
+	dprintf(1, "\t%zu <- ft_strcspn('Does this work?', '?')\n", ft_strcspn("Does this work?", ",.!?"));
+	dprintf(1, "\t%zu <- ft_strcspn('Seems to work fine.', 'w')\n", ft_strcspn("Seems to work fine.", "xyzw"));
+	// ft_pow
+	dprintf(1, "\x1b[32mft_pow:\x1b[0m\n");
+	dprintf(1, "\t%u <- ft_pow(0, 0)\n", ft_pow(0, 0));
+	dprintf(1, "\t%u <- ft_pow(0, 1)\n", ft_pow(0, 1));
+	dprintf(1, "\t%u <- ft_pow(42, 0)\n", ft_pow(42, 0));
+	dprintf(1, "\t%u <- ft_pow(42, 1)\n", ft_pow(42, 1));
+	dprintf(1, "\t%u <- ft_pow(4, 2)\n", ft_pow(4, 2));
+	dprintf(1, "\t%u <- ft_pow(2, 8)\n", ft_pow(2, 8));
+	dprintf(1, "\t%u <- ft_pow(8, 8)\n", ft_pow(8, 8));
+	dprintf(1, "\t%u <- ft_pow(64, 64)\n", ft_pow(64, 64));
 }
