@@ -6,7 +6,7 @@
 ;    By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2016/09/11 17:04:51 by tgauvrit          #+#    #+#              ;
-;    Updated: 2016/09/11 18:20:14 by tgauvrit         ###   ########.fr        ;
+;    Updated: 2016/09/12 15:30:18 by tgauvrit         ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -26,6 +26,7 @@ _ft_strdup:
 	xor rcx, rcx	; get string length
 	not rcx
 	xor al, al
+	cld				; clear direction flag
 	repne scasb
 	not rcx
 	push rcx		; save string length
@@ -36,6 +37,7 @@ _ft_strdup:
 	pop rcx 		; unsave string length
 	mov rdi, rax	; copy allocated space for copy
 	pop rsi			; unsave string
+	cld				; clear direction flag
 	rep movsb		; copy string to allocated space
 	jmp end
 

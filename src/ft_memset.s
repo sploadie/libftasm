@@ -6,7 +6,7 @@
 ;    By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2016/09/11 16:08:02 by tgauvrit          #+#    #+#              ;
-;    Updated: 2016/09/11 16:54:09 by tgauvrit         ###   ########.fr        ;
+;    Updated: 2016/09/12 15:29:25 by tgauvrit         ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -20,6 +20,7 @@ _ft_memset:
 	mov r10, rdi
 	mov al, sil
 	mov rcx, rdx
+	cld				; clear direction flag
 	rep stosb
 
 	mov rax, r10

@@ -6,7 +6,7 @@
 ;    By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2016/09/11 16:08:02 by tgauvrit          #+#    #+#              ;
-;    Updated: 2016/09/11 18:20:20 by tgauvrit         ###   ########.fr        ;
+;    Updated: 2016/09/12 15:30:29 by tgauvrit         ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -20,6 +20,7 @@ _ft_strlen:
 	xor rcx, rcx
 	not rcx
 	xor al, al
+	cld				; clear direction flag
 	repne scasb
 	not rcx
 	dec rcx

@@ -6,7 +6,7 @@
 ;    By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2016/09/10 12:59:56 by tgauvrit          #+#    #+#              ;
-;    Updated: 2016/09/11 16:20:51 by tgauvrit         ###   ########.fr        ;
+;    Updated: 2016/09/12 15:28:55 by tgauvrit         ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -19,6 +19,7 @@ _ft_bzero:			; void bzero(void *s, size_t n);
 	je end
 	xor al, al
 	mov rcx, rsi
+	cld				; clear direction flag
 	rep stosb
 end:
 	ret
