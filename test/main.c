@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/08 10:48:28 by tgauvrit          #+#    #+#             */
-/*   Updated: 2016/09/11 18:57:30 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2016/09/12 16:55:01 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,6 +202,33 @@ int main(void)
 	fd = open("./Makefile", O_RDONLY);
 	ft_cat(fd);
 	close(fd);
-	dprintf(1, "\x1b[32mft_cat stdin:\x1b[0m\n");
+	dprintf(1, "\x1b[32mft_cat stdin: (ctrl-D to quit)\x1b[0m\n");
 	ft_cat(0);
+	// ft_strcmp
+	dprintf(1, "\x1b[32mft_strcmp:\x1b[0m\n");
+	dprintf(1, "\t%d <- ft_strcmp('42', '42')\n", ft_strcmp("42", "42"));
+	dprintf(1, "\t%d <- ft_strcmp('AAA', 'BBB')\n", ft_strcmp("AAA", "BBB"));
+	dprintf(1, "\t%d <- ft_strcmp('1', '22')\n", ft_strcmp("1", "22"));
+	dprintf(1, "\t%d <- ft_strcmp('11', '2')\n", ft_strcmp("11", "2"));
+	dprintf(1, "\t%d <- ft_strcmp('1234', '123')\n", ft_strcmp("1234", "123"));
+	dprintf(1, "\t%d <- ft_strcmp('123', '1234')\n", ft_strcmp("123", "1234"));
+	dprintf(1, "\t%d <- ft_strcmp('Equal States', 'Equal Factions')\n", ft_strcmp("Equal States", "Equal Factions"));
+	dprintf(1, "\t%d <- ft_strcmp('Equal Factions', 'Equal Factions')\n", ft_strcmp("Equal Factions", "Equal Factions"));
+	// ft_memdup
+	dprintf(1, "\x1b[32mft_memdup:\x1b[0m\n");
+	tmp = ft_memdup(NULL, 42);
+		dprintf(1, "\t'%s' <- ft_memdup(NULL, 42)\n", tmp);
+	tmp = ft_memdup("", 0);
+		dprintf(1, "\tZERO <- ft_memdup('', 0)\n");
+		free(tmp);
+	tmp = ft_memdup("", 1);
+		dprintf(1, "\t'%s' <- ft_memdup('', 1)\n", tmp);
+		free(tmp);
+	tmp = ft_memdup("My ft_memdup seems to work folks.", 13);
+		tmp[12] = 0;
+		dprintf(1, "\t'%s' <- ft_memdup('My ft_memdup seems to work folks.', 13)\n", tmp);
+		free(tmp);
+	tmp = ft_memdup("My ft_memdup seems to work folks.", 34);
+		dprintf(1, "\t'%s' <- ft_memdup('My ft_memdup seems to work folks.', 34)\n", tmp);
+		free(tmp);
 }

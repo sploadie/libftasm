@@ -6,7 +6,7 @@
 /*   By: tgauvrit <tgauvrit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 13:23:59 by tgauvrit          #+#    #+#             */
-/*   Updated: 2016/09/11 18:17:29 by tgauvrit         ###   ########.fr       */
+/*   Updated: 2016/09/12 16:51:22 by tgauvrit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
 char	*ft_strdup(const char *s1);
 
 void	ft_cat(int fd);
+
+int		ft_strcmp(const char *s1, const char *s2);
+void	*ft_memdup(const void *restrict src, size_t n);
 
 #endif
